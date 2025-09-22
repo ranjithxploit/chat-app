@@ -6,18 +6,12 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-
-# Dependencies
 node_modules/
 */node_modules/
-
-# Production builds
 dist/
 dist-ssr/
 build/
 *.local
-
-# Environment variables (SENSITIVE)
 .env
 .env.local
 .env.development.local
@@ -26,8 +20,6 @@ build/
 *.env
 backend/.env
 frontend/.env
-
-# Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -38,25 +30,16 @@ frontend/.env
 *.sln
 *.sw?
 
-# OS generated files
 Thumbs.db
 .DS_Store
-
-# Runtime data
 pids
 *.pid
 *.seed
 *.pid.lock
-
-# Coverage directory used by tools like istanbul
 coverage/
 *.lcov
-
-# Database files
 *.db
 *.sqlite
 *.sqlite3
-
-# Temporary folders
 tmp/
 temp/

@@ -1,7 +1,7 @@
 {
-  "name": "chat-app-backend",
+  "name": "chillchat-backend",
   "version": "1.0.0",
-  "description": "Backend for Chat App",
+  "description": "Backend for ChillChat - WhatsApp-like messaging app",
   "main": "server.js",
   "type": "module",
   "scripts": {
@@ -9,14 +9,22 @@
     "dev": "node --watch server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["chat", "api", "backend"],
+  "keywords": ["chat", "api", "backend", "whatsapp", "messaging"],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
     "cors": "^2.8.5",
     "socket.io": "^4.7.2",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "mongoose": "^8.0.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "cloudinary": "^1.41.0",
+    "uuid": "^9.0.1",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.5"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
