@@ -10,7 +10,7 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:8080", // Frontend URL
+    origin: process.env.FRONTEND_URL || "http://localhost:8080", // Use env variable
     methods: ["GET", "POST"]
   }
 });
