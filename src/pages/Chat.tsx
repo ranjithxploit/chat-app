@@ -2,8 +2,11 @@ import { useState } from "react";
 import { ChatLayout } from "@/components/chat/ChatLayout";
 import { ChatWindow } from "@/components/chat/ChatWindow";
 import { ProfileView } from "@/components/profile/ProfileView";
+import { FriendsList } from "@/components/friends/FriendsList";
+import { GroupsList } from "@/components/groups/GroupsList";
+import { Settings } from "@/components/settings/Settings";
 
-type View = "chat" | "profile";
+type View = "chat" | "profile" | "friends" | "groups" | "settings";
 
 interface Friend {
   id: string;
@@ -51,6 +54,7 @@ export default function Chat() {
   const [currentView, setCurrentView] = useState<View>("chat");
   const [selectedProfile, setSelectedProfile] = useState<string | null>(null);
   const [selectedFriend, setSelectedFriend] = useState<string>("1");
+  const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
 
   const handleViewProfile = (userId: string) => {
     setSelectedProfile(userId);
@@ -66,6 +70,15 @@ export default function Chat() {
     setCurrentView("chat");
   };
 
+  const handleViewChange = (view: View) => {
+    setCurrentView(view);
+  };
+
+  const handleSelectGroup = (groupId: string) => {
+    setSelectedGroup(groupId);
+    setCurrentView("chat");
+  };
+
   if (currentView === "profile" && selectedProfile) {
     return (
       <ProfileView
@@ -77,10 +90,36 @@ export default function Chat() {
     );
   }
 
+  if (currentView === "friends") {
+    return (
+      <ChatLayout onViewChange={handleViewChange} currentView={currentView}>
+        <FriendsList
+          onSelectFriend={setSelectedFriend}
+          selectedFriend={selectedFriend}
+        />
+      </ChatLayout>
+    );
+  }
+
+  if (currentView === "groups") {
+    return (
+      <ChatLayout onViewChange={handleViewChange} currentView={currentView}>
+        <GroupsList
+          onSelectGroup={handleSelectGroup}
+          selectedGroup={selectedGroup}
+        />
+      </ChatLayout>
+    );
+  }
+
+  if (currentView === "settings") {
+    return <Settings onBack={handleBackToChat} />;
+  }
+
   const currentFriend = mockFriends.find(f => f.id === selectedFriend) || mockFriends[0];
 
   return (
-    <ChatLayout>
+    <ChatLayout onViewChange={handleViewChange} currentView={currentView}>
       <ChatWindow
         friendName={currentFriend.name}
         friendAvatar={currentFriend.avatar}
