@@ -1,0 +1,1 @@
+This public folder is a copy placeholder from the previous project root public folder. Replace with your assets (images, favicon, manifest) as needed.

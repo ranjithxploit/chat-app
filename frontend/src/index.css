@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cozy Chat App Design System - Warm, friendly, addictive */
+
+@layer base {
+  :root {
+    /* Base colors - warm and cozy */
+    --background: 42 15% 97%;
+    --foreground: 159 25% 15%;
+  }
+}
